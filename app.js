@@ -10,7 +10,7 @@ function reservation_array(reserved_array) {
     	var splited = element.split("-");
     	//console.log(splited);
     	if (splited[1]) {
-    		for (i = splited[0]; i <= splited[1]; i++) { 
+    		for (var i = splited[0]; i <= splited[1]; i++) {
 			    reservation_array.push(parseInt(i));
 			}
     	}
@@ -28,8 +28,8 @@ var calendar = function(month, year, dates) {
 	var last = daysInMonth(year, month);
 	var week = 0;
 	var full_weeks = Math.ceil((last + first)/7);
-	var reserved_days = reservation_array(reserved);
-    //console.log(reserved_days);	
+	var reserved_days = reservation_array(dates);
+    //console.log(reserved_days);
 	for (var count = 1 - first; count < full_weeks*7-1; count++) {
 		if (count > 0 && count <= last && (reserved_days.indexOf(count) === -1)) {
 			markup += count + "	";
